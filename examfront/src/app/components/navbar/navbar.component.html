@@ -1,1 +1,13 @@
-<p>navbar works!</p>
+<mat-toolbar color="primary">
+    <a routerLink="/" mat-icon-button>
+        <mat-icon>menu</mat-icon>
+    </a>
+    <span>Examportal Application</span>
+    <span class="example-spacer"></span>
+    <a *ngIf="!isLoggedIn" [routerLink]="'/login'" mat-icon-button>Login</a>
+    <a *ngIf="!isLoggedIn" class="margin-left20 margin-right20" [routerLink]="'/register'" mat-icon-button>Register</a>
+    <a *ngIf="isLoggedIn" class="margin-left20 margin-right20" [routerLink]="'/register'"
+        mat-icon-button>{{user.username}}</a>
+    <a (click)="logout()" *ngIf="isLoggedIn && user != null" class="margin-left20 margin-right20"
+        [routerLink]="'/register'" mat-icon-button>Logout</a>
+</mat-toolbar>

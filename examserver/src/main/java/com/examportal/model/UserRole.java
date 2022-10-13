@@ -10,41 +10,41 @@ import javax.persistence.ManyToOne;
 @Entity
 public class UserRole {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long userRoleId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long userRoleId;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	private User user;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private User user;
 
-	@ManyToOne
-	private Role role;
+    @ManyToOne
+    private Role role;
 
-	public UserRole() {
-	}
+    public UserRole() {
+    }
 
-	public Long getUserRoleId() {
-		return userRoleId;
-	}
+    public Long getUserRoleId() {
+        return userRoleId;
+    }
 
-	public void setUserRoleId(Long userRoleId) {
-		this.userRoleId = userRoleId;
-	}
+    public void setUserRoleId(Long userRoleId) {
+        this.userRoleId = userRoleId;
+    }
 
-	public User getUser() {
-		return user;
-	}
+    public User getUser() {
+        return user;
+    }
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-	public Role getRole() {
-		return role;
-	}
+    public Role getRole() {
+        return role;
+    }
 
-	public void setRole(Role role) {
-		this.role = role;
-	}
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
 }
