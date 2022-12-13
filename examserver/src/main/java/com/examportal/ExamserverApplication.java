@@ -13,13 +13,13 @@ public class ExamserverApplication implements CommandLineRunner {
 //    @Autowired
 //    private BCryptPasswordEncoder passwordEncoder;
 
-    public static void main(String[] args) {
-        SpringApplication.run(ExamserverApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(ExamserverApplication.class, args);
+	}
 
-    @Override
-    public void run(String... args) throws Exception {
-        System.out.println("Starting Exam Portal Application!");
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("Starting Exam Portal Application!");
 
 //        User user = new User();
 //        user.setFirstName("Bhumika");
@@ -42,5 +42,5 @@ public class ExamserverApplication implements CommandLineRunner {
 //
 //        User user1 = userService.createUser(user, userRoles);
 //        System.out.println(user1);
-    }
+	}
 }

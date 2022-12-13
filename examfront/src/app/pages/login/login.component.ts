@@ -20,53 +20,64 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void { }
 
   formSubmit() {
-    if (this.loginData.username.trim() == '' || this.loginData.username == null) {
-      this.snack.open("Username is required!", '', {
-        duration: 2000
+    console.log('login btn clicked');
+
+    if (
+      this.loginData.username.trim() == '' ||
+      this.loginData.username == null
+    ) {
+      this.snack.open('Username is required !! ', '', {
+        duration: 3000,
       });
       return;
     }
 
-    if (this.loginData.password.trim() == '' || this.loginData.password == null) {
-      this.snack.open("Password is required!", '', {
-        duration: 2000
+    if (
+      this.loginData.password.trim() == '' ||
+      this.loginData.password == null
+    ) {
+      this.snack.open('Password is required !! ', '', {
+        duration: 3000,
       });
       return;
     }
 
+    //request to server to generate token
     this.login.generateToken(this.loginData).subscribe(
       (data: any) => {
-        console.log("success");
+        console.log('success');
         console.log(data);
 
+        //login...
         this.login.loginUser(data.token);
-        this.login.getCurrentUser().subscribe(
-          (user: any) => {
-            this.login.setUser(user);
-            //redirect
-            //ADMIN - admin-dashboard
-            //NORMAL - dashboard
-            if (this.login.getUserRole() == 'ADMIN') {
-              this.router.navigate(['admin']);
-              this.login.loginStatusSubject.next(true);
-            } else if (this.login.getUserRole() == 'NORMAL') {
-              this.router.navigate(['user-dashboard']);
-              this.login.loginStatusSubject.next(true);
-            } else {
-              this.login.logout();
-            }
+
+        this.login.getCurrentUser().subscribe((user: any) => {
+          this.login.setUser(user);
+          console.log(user);
+          //redirect ...ADMIN: admin-dashboard
+          //redirect ...NORMAL:normal-dashboard
+          if (this.login.getUserRole() == 'ADMIN') {
+            //admin dashboard
+            // window.location.href = '/admin';
+            this.router.navigate(['admin']);
+            this.login.loginStatusSubject.next(true);
+          } else if (this.login.getUserRole() == 'NORMAL') {
+            //normal user dashbaord
+            // window.location.href = '/user-dashboard';
+            this.router.navigate(['user-dashboard/']);
+            this.login.loginStatusSubject.next(true);
+          } else {
+            this.login.logout();
           }
-        );
+        });
       },
       (error) => {
-        console.log("Error");
+        console.log('Error !');
         console.log(error);
-        this.snack.open("Invalid Details", '', {
-          duration: 3000
+        this.snack.open('Invalid Details !! Try again', '', {
+          duration: 3000,
         });
       }
     );
-
-    console.log("Login Form Submitted!");
   }
 }

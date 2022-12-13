@@ -23,14 +23,13 @@ export class LoginService {
 
   //loginUser : set token in local storage
   public loginUser(token) {
-    localStorage.setItem("token", token);
-    this.loginStatusSubject.next(true);
+    localStorage.setItem('token', token);
     return true;
   }
 
   //isLogin: whether the user is logged in
   public isLoggedIn() {
-    let tokenString = localStorage.getItem("token");
+    let tokenString = localStorage.getItem('token');
     if (tokenString == undefined || tokenString == '' || tokenString == null) {
       return false;
     } else {
@@ -40,26 +39,25 @@ export class LoginService {
 
   //logout : to remove the token from local storage
   public logout() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     return true;
   }
 
   //getToken: returns the token
   public getToken() {
     console.log('token');
-
-    return localStorage.getItem("token");
+    return localStorage.getItem('token');
   }
 
   //set userDetail
-  public setUser(user: any) {
-    localStorage.setItem("user", JSON.stringify(user));
+  public setUser(user) {
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
   //getUser
   public getUser() {
-    let userString = localStorage.getItem("user");
+    let userString = localStorage.getItem('user');
     if (userString != null) {
       return JSON.parse(userString);
     } else {
@@ -71,6 +69,6 @@ export class LoginService {
   //getUserRole
   public getUserRole() {
     let user = this.getUser();
-    return user.authorities;
+    return user.authorities[0].authority;
   }
 }

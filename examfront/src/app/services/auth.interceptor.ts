@@ -3,8 +3,6 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS
 import { Observable } from "rxjs";
 import { LoginService } from './login/login.service';
 
-// const TOKEN_HEADER = '';
-
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
     constructor(private login: LoginService) { }
@@ -15,7 +13,7 @@ export class AuthInterceptor implements HttpInterceptor {
         const token = this.login.getToken();
 
         if (token != null) {
-            authRequest = authRequest.clone({ setHeaders: { Authorization: `Bearer ${token}` } });
+            authRequest = authRequest.clone({ setHeaders: { Authorization: `Bearer ${token}` }, });
         }
         return next.handle(authRequest);
     }
@@ -26,5 +24,5 @@ export const authInterceptorProviders = [
         provide: HTTP_INTERCEPTORS,
         useClass: AuthInterceptor,
         multi: true
-    }
+    },
 ];

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login/login.service';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +17,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.isLoggedIn = this.login.isLoggedIn();
     this.user = this.login.getUser();
-    this.login.loginStatusSubject.asObservable().subscribe(data => {
+    this.login.loginStatusSubject.asObservable().subscribe((data) => {
       this.isLoggedIn = this.login.isLoggedIn();
       this.user = this.login.getUser();
     });
