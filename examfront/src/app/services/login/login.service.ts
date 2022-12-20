@@ -46,7 +46,6 @@ export class LoginService {
 
   //getToken: returns the token
   public getToken() {
-    console.log('token');
     return localStorage.getItem('token');
   }
 

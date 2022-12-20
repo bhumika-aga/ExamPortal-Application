@@ -1,9 +1,12 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
+import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -59,14 +62,41 @@ const routes: Routes = [
         path: 'add-quiz',
         component: AddQuizComponent
       },
+      {
+        path: 'quiz/:qId',
+        component: UpdateQuizComponent
+      },
+      // {
+      //   path: 'view-questions/:qId/:title',
+      //   component: ViewQuizQuestionsComponent
+      // },
+      // {
+      //   path: 'add-question/:qId/:title',
+      //   component: AddQuestionComponent
+      // }
     ]
   },
   {
     path: 'user-dashboard',
     component: UserDashboardComponent,
     pathMatch: 'full',
-    canActivate: [NormalGuard]
-  }
+    canActivate: [NormalGuard],
+    // children: [
+    //   {
+    //     path: ':catId',
+    //     component: LoadQuizComponent
+    //   },
+    //   {
+    //     path: 'instructions/:qId',
+    //     component: InstructionsComponent
+    //   },
+    // ]
+  },
+  // {
+  //   path: 'start/:qId',
+  //   component: StartComponent,
+  //   canActivate: [NormalGuard]
+  // }
 ];
 
 @NgModule({

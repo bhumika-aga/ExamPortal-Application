@@ -25,4 +25,25 @@ export class ViewQuizzesComponent implements OnInit {
       }
     );
   }
+
+  deleteQuiz(qId) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Are you sure you want to delete this quiz?',
+      confirmButtonText: 'Yes, Delete the Quiz!',
+      showCancelButton: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this._quiz.deleteQuiz(qId).subscribe(
+          (data) => {
+            this.quizzes = this.quizzes.filter((quiz) => quiz.qId != qId);
+            Swal.fire('Success', 'Quiz Successfully deleted!', 'success');
+          },
+          (error) => {
+            Swal.fire('Error', 'Error while deleting Quiz! Please try again later!', 'error');
+          }
+        );
+      }
+    });
+  }
 }
