@@ -3,6 +3,7 @@ package com.examportal.controller;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,5 +69,36 @@ public class QuestionController {
 		}
 		Collections.shuffle(list);
 		return ResponseEntity.ok(list);
+	}
+
+	@GetMapping("/quiz/all/{quizId}")
+	public ResponseEntity<?> getQuestionsOfQuizAdmin(@PathVariable("quizId") Long quizId) {
+		Quiz quiz = new Quiz();
+		quiz.setqId(quizId);
+		Set<Question> questionsOfQuiz = questionService.getQuestionofQuiz(quiz);
+		return ResponseEntity.ok(questionsOfQuiz);
+	}
+
+	@PostMapping("/eval-quiz")
+	public ResponseEntity<?> evaluateQuiz(@RequestBody List<Question> questions) {
+		System.out.println(questions);
+		double marks = 0;
+		int correctAnswers = 0;
+		int attempted = 0;
+		for (Question q : questions) {
+			Question question = questionService.get(q.getQuestionId());
+			if (question.getAnswer().equals(q.getGivenAnswer())) {
+				correctAnswers++;
+				double marksSingle = Double.parseDouble(questions.get(0).getQuiz().getMaxMarks()) / questions.size();
+				marks += marksSingle;
+			}
+
+			if (q.getGivenAnswer() != null) {
+				attempted++;
+			}
+		}
+
+		Map<String, Object> map = Map.of("marksGot", marks, "correctAnswers", correctAnswers, "attempted", attempted);
+		return ResponseEntity.ok(map);
 	}
 }

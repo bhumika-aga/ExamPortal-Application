@@ -66,14 +66,14 @@ const routes: Routes = [
         path: 'quiz/:qId',
         component: UpdateQuizComponent
       },
-      // {
-      //   path: 'view-questions/:qId/:title',
-      //   component: ViewQuizQuestionsComponent
-      // },
-      // {
-      //   path: 'add-question/:qId/:title',
-      //   component: AddQuestionComponent
-      // }
+      {
+        path: 'view-questions/:qId/:title',
+        component: ViewQuizQuestionsComponent
+      },
+      {
+        path: 'add-question/:qId/:title',
+        component: AddQuestionComponent
+      }
     ]
   },
   {
