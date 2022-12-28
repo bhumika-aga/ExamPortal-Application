@@ -42,6 +42,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { SidebarComponent as UserSideBar } from './pages/user/sidebar/sidebar.component';
 import { WelcomeUserComponent } from './pages/user/welcome-user/welcome-user.component';
 import { UpdateQuizQuestionComponent } from './pages/admin/update-quiz-question/update-quiz-question.component';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -87,7 +89,12 @@ import { UpdateQuizQuestionComponent } from './pages/admin/update-quiz-question/
     MatTableModule,
     MatSelectModule,
     MatSlideToggleModule,
-    CKEditorModule
+    MatProgressSpinnerModule,
+    CKEditorModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground: true
+    })
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
