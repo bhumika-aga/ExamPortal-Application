@@ -82,7 +82,7 @@ public class QuestionController {
 	@PostMapping("/eval-quiz")
 	public ResponseEntity<?> evaluateQuiz(@RequestBody List<Question> questions) {
 		System.out.println(questions);
-		double marks = 0;
+		double marksGot = 0;
 		int correctAnswers = 0;
 		int attempted = 0;
 		for (Question q : questions) {
@@ -90,7 +90,7 @@ public class QuestionController {
 			if (question.getAnswer().equals(q.getGivenAnswer())) {
 				correctAnswers++;
 				double marksSingle = Double.parseDouble(questions.get(0).getQuiz().getMaxMarks()) / questions.size();
-				marks += marksSingle;
+				marksGot += marksSingle;
 			}
 
 			if (q.getGivenAnswer() != null) {
@@ -98,7 +98,8 @@ public class QuestionController {
 			}
 		}
 
-		Map<String, Object> map = Map.of("marksGot", marks, "correctAnswers", correctAnswers, "attempted", attempted);
+		Map<String, Object> map = Map.of("marksGot", marksGot, "correctAnswers", correctAnswers, "attempted",
+				attempted);
 		return ResponseEntity.ok(map);
 	}
 }

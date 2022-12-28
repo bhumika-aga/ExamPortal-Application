@@ -17,7 +17,7 @@ export class AddQuizComponent implements OnInit {
     description: '',
     maxMarks: '',
     noOfQUestions: '',
-    isActive: true,
+    active: true,
     category: {
       cId: ''
     }
@@ -51,7 +51,7 @@ export class AddQuizComponent implements OnInit {
           description: '',
           maxMarks: '',
           noOfQUestions: '',
-          isActive: true,
+          active: true,
           category: {
             cId: ''
           }

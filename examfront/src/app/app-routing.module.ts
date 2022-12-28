@@ -1,9 +1,10 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { UpdateQuizQuestionComponent } from './pages/admin/update-quiz-question/update-quiz-question.component';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
 import { ViewQuizQuestionsComponent } from './pages/admin/view-quiz-questions/view-quiz-questions.component';
@@ -13,7 +14,11 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
+import { StartComponent } from './pages/user/start/start.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
+import { WelcomeUserComponent } from './pages/user/welcome-user/welcome-user.component';
 import { AdminGuard } from './services/admin-guard/admin.guard';
 import { NormalGuard } from './services/normal-guard/normal.guard';
 
@@ -73,30 +78,37 @@ const routes: Routes = [
       {
         path: 'add-question/:qId/:title',
         component: AddQuestionComponent
-      }
+      },
+      {
+        path: 'question/:qId',
+        component: UpdateQuizQuestionComponent
+      },
     ]
   },
   {
     path: 'user-dashboard',
     component: UserDashboardComponent,
-    pathMatch: 'full',
     canActivate: [NormalGuard],
-    // children: [
-    //   {
-    //     path: ':catId',
-    //     component: LoadQuizComponent
-    //   },
-    //   {
-    //     path: 'instructions/:qId',
-    //     component: InstructionsComponent
-    //   },
-    // ]
+    children: [
+      {
+        path: '',
+        component: WelcomeUserComponent
+      },
+      {
+        path: ':catId',
+        component: LoadQuizComponent
+      },
+      {
+        path: 'instructions/:qId',
+        component: InstructionsComponent
+      },
+    ]
   },
-  // {
-  //   path: 'start/:qId',
-  //   component: StartComponent,
-  //   canActivate: [NormalGuard]
-  // }
+  {
+    path: 'start/:qId',
+    component: StartComponent,
+    canActivate: [NormalGuard]
+  }
 ];
 
 @NgModule({

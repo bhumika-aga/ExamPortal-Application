@@ -6,18 +6,21 @@ import { LoginService } from 'src/app/services/login/login.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-
   loginData = {
     username: '',
-    password: ''
+    password: '',
   };
 
-  constructor(private snack: MatSnackBar, private login: LoginService, private router: Router) { }
+  constructor(
+    private snack: MatSnackBar,
+    private login: LoginService,
+    private router: Router
+  ) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   formSubmit() {
     console.log('login btn clicked');
@@ -58,12 +61,10 @@ export class LoginComponent implements OnInit {
           //redirect ...NORMAL:normal-dashboard
           if (this.login.getUserRole() == 'ADMIN') {
             //admin dashboard
-            // window.location.href = '/admin';
             this.router.navigate(['admin']);
             this.login.loginStatusSubject.next(true);
           } else if (this.login.getUserRole() == 'NORMAL') {
             //normal user dashbaord
-            // window.location.href = '/user-dashboard';
             this.router.navigate(['user-dashboard/']);
             this.login.loginStatusSubject.next(true);
           } else {

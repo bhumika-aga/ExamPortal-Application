@@ -26,12 +26,12 @@ export class RegisterComponent implements OnInit {
   formSubmit() {
     console.log(this.user);
     if (this.user.username == '' || this.user.username == null) {
-      this.snack.open('Username is required!', 'Okay', { duration: 2000 });
+      this.snack.open('Username is required!', '', { duration: 2000 });
       return;
     }
 
     if (this.user.password == '' || this.user.password == null) {
-      this.snack.open('Password is required!', 'Okay', { duration: 2000 });
+      this.snack.open('Password is required!', '', { duration: 2000 });
       return;
     }
 

@@ -22,13 +22,13 @@ import com.examportal.service.impl.UserDetailsServiceImpl;
 public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	private UserDetailsServiceImpl userDetailsService;
-
-	@Autowired
 	private JwtAuthenticationEntryPoint unauthorizedHandler;
 
 	@Autowired
 	private JwtAuthenticationFilter jwtAuthenticationFilter;
+
+	@Autowired
+	private UserDetailsServiceImpl userDetailsService;
 
 	@Override
 	@Bean

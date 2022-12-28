@@ -31,4 +31,8 @@ export class QuestionService {
   public evalQuiz(questions) {
     return this._http.post(`${baseUrl}/question/eval-quiz`, questions);
   }
+
+  public updateQuestion(question) {
+    return this._http.put(`${baseUrl}/question/`, question);
+  }
 }
