@@ -7,11 +7,15 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-update-quiz',
   templateUrl: './update-quiz.component.html',
-  styleUrls: ['./update-quiz.component.css']
+  styleUrls: ['./update-quiz.component.css'],
 })
 export class UpdateQuizComponent implements OnInit {
-
-  constructor(private _route: ActivatedRoute, private _quiz: QuizService, private _cat: CategoryService, private _router: Router) { }
+  constructor(
+    private _route: ActivatedRoute,
+    private _quiz: QuizService,
+    private _cat: CategoryService,
+    private _router: Router
+  ) {}
 
   qId = 0;
   quiz;
@@ -26,7 +30,6 @@ export class UpdateQuizComponent implements OnInit {
       },
       (error) => {
         console.log(error);
-
       }
     );
 
@@ -43,12 +46,18 @@ export class UpdateQuizComponent implements OnInit {
   public updateData() {
     this._quiz.updateQuiz(this.quiz).subscribe(
       (data) => {
-        Swal.fire('Success', 'Quiz Successfully Updated!', 'success').then((e) => {
-          this._router.navigate(['/admin/quizzes']);
-        });
+        Swal.fire('Success', 'Quiz Successfully Updated!', 'success').then(
+          (e) => {
+            this._router.navigate(['/admin/quizzes']);
+          }
+        );
       },
       (error) => {
-        Swal.fire('Error', 'Error while updating the quiz! Please try again later!', 'error');
+        Swal.fire(
+          'Error',
+          'Error while updating the quiz! Please try again later!',
+          'error'
+        );
         console.log(error);
       }
     );

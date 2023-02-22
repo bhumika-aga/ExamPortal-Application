@@ -26,17 +26,17 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'register',
     component: RegisterComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'login',
     component: LoginComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'admin',
@@ -45,45 +45,45 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: WelcomeComponent
+        component: WelcomeComponent,
       },
       {
         path: 'profile',
-        component: ProfileComponent
+        component: ProfileComponent,
       },
       {
         path: 'categories',
-        component: ViewCategoriesComponent
+        component: ViewCategoriesComponent,
       },
       {
         path: 'add-category',
-        component: AddCategoryComponent
+        component: AddCategoryComponent,
       },
       {
         path: 'quizzes',
-        component: ViewQuizzesComponent
+        component: ViewQuizzesComponent,
       },
       {
         path: 'add-quiz',
-        component: AddQuizComponent
+        component: AddQuizComponent,
       },
       {
         path: 'quiz/:qId',
-        component: UpdateQuizComponent
+        component: UpdateQuizComponent,
       },
       {
         path: 'view-questions/:qId/:title',
-        component: ViewQuizQuestionsComponent
+        component: ViewQuizQuestionsComponent,
       },
       {
         path: 'add-question/:qId/:title',
-        component: AddQuestionComponent
+        component: AddQuestionComponent,
       },
       {
         path: 'question/:qId',
-        component: UpdateQuizQuestionComponent
+        component: UpdateQuizQuestionComponent,
       },
-    ]
+    ],
   },
   {
     path: 'user-dashboard',
@@ -92,27 +92,27 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: WelcomeUserComponent
+        component: WelcomeUserComponent,
       },
       {
         path: ':catId',
-        component: LoadQuizComponent
+        component: LoadQuizComponent,
       },
       {
         path: 'instructions/:qId',
-        component: InstructionsComponent
+        component: InstructionsComponent,
       },
-    ]
+    ],
   },
   {
     path: 'start/:qId',
     component: StartComponent,
-    canActivate: [NormalGuard]
-  }
+    canActivate: [NormalGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

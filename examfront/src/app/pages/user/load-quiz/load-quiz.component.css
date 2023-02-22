@@ -1,12 +1,12 @@
 .truncate {
-    display: block;
-    white-space: nowrap;
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  display: block;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .header-image {
-    background-image: url("/assets/exam.png");
-    background-size: cover;
+  background-image: url("/assets/exam.png");
+  background-size: cover;
 }

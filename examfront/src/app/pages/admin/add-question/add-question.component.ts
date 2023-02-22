@@ -8,10 +8,9 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 @Component({
   selector: 'app-add-question',
   templateUrl: './add-question.component.html',
-  styleUrls: ['./add-question.component.css']
+  styleUrls: ['./add-question.component.css'],
 })
 export class AddQuestionComponent implements OnInit {
-
   public Editor = ClassicEditor;
   qId;
   qTitle;
@@ -22,10 +21,14 @@ export class AddQuestionComponent implements OnInit {
     option2: '',
     option3: '',
     option4: '',
-    answer: ''
+    answer: '',
   };
 
-  constructor(private _route: ActivatedRoute, private _question: QuestionService, private _quiz: QuizService) { }
+  constructor(
+    private _route: ActivatedRoute,
+    private _question: QuestionService,
+    private _quiz: QuizService
+  ) {}
 
   ngOnInit(): void {
     this.qId = this._route.snapshot.params.qId;
@@ -61,7 +64,11 @@ export class AddQuestionComponent implements OnInit {
         this.question.answer = '';
       },
       (error) => {
-        Swal.fire('Error!', 'Error while adding question! Please try again later!', 'error');
+        Swal.fire(
+          'Error!',
+          'Error while adding question! Please try again later!',
+          'error'
+        );
       }
     );
   }

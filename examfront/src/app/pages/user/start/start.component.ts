@@ -8,10 +8,9 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-start',
   templateUrl: './start.component.html',
-  styleUrls: ['./start.component.css']
+  styleUrls: ['./start.component.css'],
 })
 export class StartComponent implements OnInit {
-
   qId;
   questions;
   marksGot = 0;
@@ -20,7 +19,12 @@ export class StartComponent implements OnInit {
   isSubmit = false;
   timer: any;
 
-  constructor(private locationSt: LocationStrategy, private _route: ActivatedRoute, private _question: QuestionService, private _quiz: QuizService) { }
+  constructor(
+    private locationSt: LocationStrategy,
+    private _route: ActivatedRoute,
+    private _question: QuestionService,
+    private _quiz: QuizService
+  ) {}
 
   ngOnInit(): void {
     this.preventBackButton();
@@ -39,14 +43,20 @@ export class StartComponent implements OnInit {
       },
       (error) => {
         console.log(error);
-        Swal.fire('Error', 'Error while loading questions f the quiz! Please try again later!', 'error');
+        Swal.fire(
+          'Error',
+          'Error while loading questions f the quiz! Please try again later!',
+          'error'
+        );
       }
     );
   }
 
   preventBackButton() {
     history.pushState(null, null, location.href);
-    this.locationSt.onPopState(() => { history.pushState(null, null, location.href) });
+    this.locationSt.onPopState(() => {
+      history.pushState(null, null, location.href);
+    });
   }
 
   submitQuiz() {
@@ -54,7 +64,7 @@ export class StartComponent implements OnInit {
       title: 'Are you sure you want to submit the quiz?',
       showCancelButton: true,
       confirmButtonText: 'Submit',
-      icon: 'warning'
+      icon: 'warning',
     }).then((e) => {
       if (e.isConfirmed) {
         this.evalQuiz();
@@ -67,8 +77,7 @@ export class StartComponent implements OnInit {
       if (this.timer <= 0) {
         this.evalQuiz();
         clearInterval(t);
-      }
-      else {
+      } else {
         this.timer--;
       }
     }, 1000);
@@ -95,7 +104,7 @@ export class StartComponent implements OnInit {
     );
   }
 
-  printPage(){
+  printPage() {
     window.print();
   }
 }

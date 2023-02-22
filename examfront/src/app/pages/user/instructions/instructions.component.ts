@@ -6,13 +6,17 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-instructions',
   templateUrl: './instructions.component.html',
-  styleUrls: ['./instructions.component.css']
+  styleUrls: ['./instructions.component.css'],
 })
 export class InstructionsComponent implements OnInit {
   qId;
   quiz;
 
-  constructor(private _route: ActivatedRoute, private _quiz: QuizService, private _router: Router) { }
+  constructor(
+    private _route: ActivatedRoute,
+    private _quiz: QuizService,
+    private _router: Router
+  ) {}
 
   ngOnInit(): void {
     this.qId = this._route.snapshot.params.qId;
@@ -33,12 +37,11 @@ export class InstructionsComponent implements OnInit {
       showCancelButton: true,
       confirmButtonText: `Start`,
       denyButtonText: `Don't Save`,
-      icon: 'warning'
+      icon: 'warning',
     }).then((result) => {
       if (result.isConfirmed) {
         this._router.navigate(['/start/' + this.qId]);
-      }
-      else if (result.isDenied) {
+      } else if (result.isDenied) {
         Swal.fire('Changes are not saved', '', 'warning');
       }
     });

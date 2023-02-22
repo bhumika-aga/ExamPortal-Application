@@ -4,13 +4,12 @@ import { Subject } from 'rxjs';
 import baseUrl from '../helper';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
-
   public loginStatusSubject = new Subject<boolean>();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   //gets details of the currently logged in user
   public getCurrentUser() {

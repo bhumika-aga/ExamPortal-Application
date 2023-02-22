@@ -6,23 +6,24 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-add-category',
   templateUrl: './add-category.component.html',
-  styleUrls: ['./add-category.component.css']
+  styleUrls: ['./add-category.component.css'],
 })
 export class AddCategoryComponent implements OnInit {
-
   category = {
     title: '',
-    description: ''
+    description: '',
   };
 
-  constructor(private _category: CategoryService, private _snack: MatSnackBar) { }
+  constructor(
+    private _category: CategoryService,
+    private _snack: MatSnackBar
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   formSubmit() {
     if (this.category.title.trim() == '' || this.category.title == null) {
-      this._snack.open("Title is required!", '', {
+      this._snack.open('Title is required!', '', {
         duration: 3000,
       });
       return;
@@ -32,11 +33,11 @@ export class AddCategoryComponent implements OnInit {
       (data: any) => {
         this.category.title = '';
         this.category.description = '';
-        Swal.fire("Success!", "Category added successfully!", 'success');
+        Swal.fire('Success!', 'Category added successfully!', 'success');
       },
       (error) => {
         console.log(error);
-        Swal.fire("Error!", "Category could not be added!", 'error');
+        Swal.fire('Error!', 'Category could not be added!', 'error');
       }
     );
   }

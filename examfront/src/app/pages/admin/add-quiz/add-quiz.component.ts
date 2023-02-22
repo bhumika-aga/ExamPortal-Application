@@ -7,10 +7,9 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-add-quiz',
   templateUrl: './add-quiz.component.html',
-  styleUrls: ['./add-quiz.component.css']
+  styleUrls: ['./add-quiz.component.css'],
 })
 export class AddQuizComponent implements OnInit {
-
   categories = [];
   quizData = {
     title: '',
@@ -19,11 +18,15 @@ export class AddQuizComponent implements OnInit {
     noOfQUestions: '',
     active: true,
     category: {
-      cId: ''
-    }
+      cId: '',
+    },
   };
 
-  constructor(private _cat: CategoryService, private _snack: MatSnackBar, private _quiz: QuizService) { }
+  constructor(
+    private _cat: CategoryService,
+    private _snack: MatSnackBar,
+    private _quiz: QuizService
+  ) {}
 
   ngOnInit(): void {
     this._cat.categories().subscribe(
@@ -53,8 +56,8 @@ export class AddQuizComponent implements OnInit {
           noOfQUestions: '',
           active: true,
           category: {
-            cId: ''
-          }
+            cId: '',
+          },
         };
       },
       (error) => {

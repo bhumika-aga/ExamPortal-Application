@@ -6,11 +6,10 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-
-  constructor(private userService: UserService, private snack: MatSnackBar) { }
+  constructor(private userService: UserService, private snack: MatSnackBar) {}
 
   public user = {
     username: '',
@@ -18,10 +17,10 @@ export class RegisterComponent implements OnInit {
     firstName: '',
     lastName: '',
     email: '',
-    phone: ''
+    phone: '',
   };
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   formSubmit() {
     console.log(this.user);
@@ -38,7 +37,11 @@ export class RegisterComponent implements OnInit {
     this.userService.addUser(this.user).subscribe(
       (data: any) => {
         console.log(data);
-        Swal.fire('Success', 'Successfully registered the user! User Id is ' + data.id, 'success');
+        Swal.fire(
+          'Success',
+          'Successfully registered the user! User Id is ' + data.id,
+          'success'
+        );
       },
       (error) => {
         console.log(error);

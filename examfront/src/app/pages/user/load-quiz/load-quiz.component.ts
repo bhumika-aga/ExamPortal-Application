@@ -5,13 +5,13 @@ import { QuizService } from 'src/app/services/quiz/quiz.service';
 @Component({
   selector: 'app-load-quiz',
   templateUrl: './load-quiz.component.html',
-  styleUrls: ['./load-quiz.component.css']
+  styleUrls: ['./load-quiz.component.css'],
 })
 export class LoadQuizComponent implements OnInit {
   catId;
   quizzes;
 
-  constructor(private _route: ActivatedRoute, private _quiz: QuizService) { }
+  constructor(private _route: ActivatedRoute, private _quiz: QuizService) {}
 
   ngOnInit(): void {
     this._route.params.subscribe((params) => {

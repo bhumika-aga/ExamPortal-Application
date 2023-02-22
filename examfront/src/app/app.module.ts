@@ -43,7 +43,7 @@ import { SidebarComponent as UserSideBar } from './pages/user/sidebar/sidebar.co
 import { WelcomeUserComponent } from './pages/user/welcome-user/welcome-user.component';
 import { UpdateQuizQuestionComponent } from './pages/admin/update-quiz-question/update-quiz-question.component';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -70,7 +70,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     StartComponent,
     UserSideBar,
     WelcomeUserComponent,
-    UpdateQuizQuestionComponent
+    UpdateQuizQuestionComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,10 +93,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     CKEditorModule,
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({
-      showForeground: true
-    })
+      showForeground: true,
+    }),
   ],
   providers: [authInterceptorProviders],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
