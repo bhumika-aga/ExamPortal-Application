@@ -33,7 +33,7 @@ public class QuizController {
 	}
 
 	@GetMapping("/{quizId}")
-	public Quiz getQuiz(@PathVariable("quizId") Long quizId) {
+	public Quiz getQuiz(@PathVariable Long quizId) {
 		return quizService.getQuiz(quizId);
 	}
 
@@ -48,12 +48,12 @@ public class QuizController {
 	}
 
 	@DeleteMapping("/{quizId}")
-	public void deleteQuiz(@PathVariable("quizId") Long quizId) {
+	public void deleteQuiz(@PathVariable Long quizId) {
 		quizService.deleteQuiz(quizId);
 	}
 
 	@GetMapping("/category/{cId}")
-	public List<Quiz> GetQuizzesOfCategory(@PathVariable("cId") Long cId) {
+	public List<Quiz> GetQuizzesOfCategory(@PathVariable Long cId) {
 		Category category = new Category();
 		category.setcId(cId);
 		return quizService.getQuizzesOfCategory(category);
@@ -65,7 +65,7 @@ public class QuizController {
 	}
 
 	@GetMapping("/category/active/{cId}")
-	public List<Quiz> getActiveQuizzes(@PathVariable("cId") Long cId) {
+	public List<Quiz> getActiveQuizzes(@PathVariable Long cId) {
 		Category category = new Category();
 		category.setcId(cId);
 		return quizService.getActiveQuizzesOfCategory(category);

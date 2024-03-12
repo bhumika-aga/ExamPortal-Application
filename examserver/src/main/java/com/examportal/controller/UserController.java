@@ -61,13 +61,13 @@ public class UserController {
 	}
 
 	@GetMapping("/{username}")
-	public User getUser(@PathVariable("username") String username) {
+	public User getUser(@PathVariable String username) {
 
 		return userService.getUser(username);
 	}
 
 	@DeleteMapping("/{userId}")
-	public void deleteUser(@PathVariable("userId") Long userId) {
+	public void deleteUser(@PathVariable Long userId) {
 		userService.deleteUser(userId);
 	}
 
