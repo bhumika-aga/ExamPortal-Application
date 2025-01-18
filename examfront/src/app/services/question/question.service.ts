@@ -6,7 +6,7 @@ import baseUrl from '../helper';
   providedIn: 'root',
 })
 export class QuestionService {
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
 
   public getQuestionsOfQuiz(qId) {
     return this._http.get(`${baseUrl}/question/quiz/all/${qId}`);

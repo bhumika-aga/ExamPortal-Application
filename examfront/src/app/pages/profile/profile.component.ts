@@ -9,7 +9,7 @@ import { LoginService } from 'src/app/services/login/login.service';
 export class ProfileComponent implements OnInit {
   user = null;
 
-  constructor(private login: LoginService) {}
+  constructor(private login: LoginService) { }
 
   ngOnInit(): void {
     this.user = this.login.getUser();

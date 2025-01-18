@@ -11,7 +11,7 @@ export class LoadQuizComponent implements OnInit {
   catId;
   quizzes;
 
-  constructor(private _route: ActivatedRoute, private _quiz: QuizService) {}
+  constructor(private _route: ActivatedRoute, private _quiz: QuizService) { }
 
   ngOnInit(): void {
     this._route.params.subscribe((params) => {

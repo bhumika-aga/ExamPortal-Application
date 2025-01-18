@@ -16,7 +16,7 @@ export class InstructionsComponent implements OnInit {
     private _route: ActivatedRoute,
     private _quiz: QuizService,
     private _router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.qId = this._route.snapshot.params.qId;

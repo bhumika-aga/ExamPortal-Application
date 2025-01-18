@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  constructor(private userService: UserService, private snack: MatSnackBar) {}
+  constructor(private userService: UserService, private snack: MatSnackBar) { }
 
   public user = {
     username: '',
@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
     phone: '',
   };
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   formSubmit() {
     console.log(this.user);

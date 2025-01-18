@@ -13,7 +13,7 @@ import { LoginService } from '../login/login.service';
   providedIn: 'root',
 })
 export class NormalGuard implements CanActivate {
-  constructor(private login: LoginService, private router: Router) {}
+  constructor(private login: LoginService, private router: Router) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,

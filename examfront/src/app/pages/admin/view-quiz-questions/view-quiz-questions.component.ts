@@ -18,7 +18,7 @@ export class ViewQuizQuestionsComponent implements OnInit {
     private _route: ActivatedRoute,
     private _question: QuestionService,
     private _snack: MatSnackBar
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.qId = this._route.snapshot.params.qId;

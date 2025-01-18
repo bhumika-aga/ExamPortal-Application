@@ -6,7 +6,7 @@ import baseUrl from '../helper';
   providedIn: 'root',
 })
 export class CategoryService {
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
 
   public categories() {
     return this._http.get(`${baseUrl}/category/`);

@@ -26,7 +26,7 @@ export class AddQuizComponent implements OnInit {
     private _cat: CategoryService,
     private _snack: MatSnackBar,
     private _quiz: QuizService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this._cat.categories().subscribe(

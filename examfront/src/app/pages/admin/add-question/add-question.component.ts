@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { QuestionService } from 'src/app/services/question/question.service';
 import { QuizService } from 'src/app/services/quiz/quiz.service';
 import Swal from 'sweetalert2';
-import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 @Component({
   selector: 'app-add-question',
@@ -28,7 +28,7 @@ export class AddQuestionComponent implements OnInit {
     private _route: ActivatedRoute,
     private _question: QuestionService,
     private _quiz: QuizService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.qId = this._route.snapshot.params.qId;

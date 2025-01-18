@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { QuestionService } from 'src/app/services/question/question.service';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { QuestionService } from 'src/app/services/question/question.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,7 +18,7 @@ export class UpdateQuizQuestionComponent implements OnInit {
     private _route: ActivatedRoute,
     private _question: QuestionService,
     private _router: Router
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.questionId = this._route.snapshot.params.questionId;
     this._question.getQuestionsOfQuiz(this.question.quiz.qId).subscribe(

@@ -10,7 +10,7 @@ import { CategoryService } from 'src/app/services/category/category.service';
 export class SidebarComponent implements OnInit {
   categories;
 
-  constructor(private _cat: CategoryService, private _snack: MatSnackBar) {}
+  constructor(private _cat: CategoryService, private _snack: MatSnackBar) { }
 
   ngOnInit(): void {
     this._cat.categories().subscribe(

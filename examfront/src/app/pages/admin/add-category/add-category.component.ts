@@ -17,9 +17,9 @@ export class AddCategoryComponent implements OnInit {
   constructor(
     private _category: CategoryService,
     private _snack: MatSnackBar
-  ) {}
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   formSubmit() {
     if (this.category.title.trim() == '' || this.category.title == null) {

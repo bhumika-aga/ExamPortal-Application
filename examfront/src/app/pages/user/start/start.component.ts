@@ -24,7 +24,7 @@ export class StartComponent implements OnInit {
     private _route: ActivatedRoute,
     private _question: QuestionService,
     private _quiz: QuizService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.preventBackButton();

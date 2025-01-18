@@ -6,7 +6,7 @@ import baseUrl from '../helper';
   providedIn: 'root',
 })
 export class QuizService {
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
 
   public quizzes() {
     return this._http.get(`${baseUrl}/quiz/`);

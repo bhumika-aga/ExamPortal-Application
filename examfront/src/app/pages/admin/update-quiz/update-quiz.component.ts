@@ -15,7 +15,7 @@ export class UpdateQuizComponent implements OnInit {
     private _quiz: QuizService,
     private _cat: CategoryService,
     private _router: Router
-  ) {}
+  ) { }
 
   qId = 0;
   quiz;

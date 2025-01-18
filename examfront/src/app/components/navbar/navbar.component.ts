@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login/login.service';
-import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-navbar',
